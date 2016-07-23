@@ -1,0 +1,18 @@
+不同分辨率下的图片显示
+
+图片资源的文件夹
+
+drawable-ldpi
+drawable-mdpi
+drawable-hdpi
+drawable-xhdpi 
+drawable-xxhdpi
+这5个文件夹中都放一个名字一样的图片
+
+<ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/logo"
+/>
+
+当图片被引用的时候，android底层自动判断客户端的分辨率，并指向合适的分辨率的图片
