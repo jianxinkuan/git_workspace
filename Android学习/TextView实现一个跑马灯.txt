@@ -1,0 +1,54 @@
+2016年7月24日10:09:17
+
+用TextView来实现一个跑马灯的效果
+
+TextView 如果字体太长,就会折行显示。
+如果需要让字体显示在一行，就需要让它滚动起来
+
+
+<TextView 
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"  //此属性加上以后。不会折行。剁掉
+        android:text="@string/test_long"
+        />
+
+	把这三个属性加上  就可以滚动了
+	android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+
+
+但是这种滚动方式有弊端 
+android默认只有一个TextView能获取到焦点
+所以
+两个TextView都加了以后，只有第一起作用，第二个不起作用
+
+这时候我们要重写一下TextView的isFocused方法
+
+@Override
+public boolean isFocused() {
+	return true;//强制返回true   那么每个textView都是焦点了
+}
+
+
+然后在activity的xml中引用我们自己的字体
+
+
+ 使用全路径引用最好！(不是必须使用全路径)
+ <com.weixin.MyTextView.MarqueeTextView 
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="@string/test_long"
+        />
+总结一下
+android:ellipsize="marquee"
+android:focusable="true"
+android:focusableInTouchMode="true"
+android:marqueeRepeatLimit="marquee_forever" 第四个属性，加上之后才能一直循环  不然两遍就停了

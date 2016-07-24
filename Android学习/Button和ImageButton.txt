@@ -1,1 +1,86 @@
 Button和ImageButton
+
+button 
+<Button 
+	android:id="@+id/btn1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:text="我是一只按钮"
+/>
+
+
+<ImageButton 
+	android:id="@+id/btn1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:src=""
+/>
+
+style="?android:attr/buttonStyleSmall"
+这个属性加上以后 按钮变小
+
+Button和ImageButton的特性
+
+1、共有的特性
+都可以绑定点击事件
+
+2、不同点
+Button有text的属性，ImageButton没有
+ImageButton有src的属性，而Button没有
+
+3、产生明显的点击效果
+
+
+注意：res下面的资源文件都会在R.java中有对应的资源ID
+所以才能引用到
+
+
+------------------------
+
+Button和ImageButton的监听事件
+
+1、Button和ImageButton都有一个onclick事件
+通过自身对象.setOnClickListener()方法，给按钮
+添加一个监听器，可以捕获到按钮被触发的事件
+
+2、所有的控件都有一个onclick事件
+
+注意监听事件的实现方式
+
+1、匿名内部类的实现
+2、独立类的实现
+(此实现方式  先用一个类实现OnclickListener接口)
+然后调用该实现类
+调用的时候还可以继续重写onclick方法
+
+注意 ：这样调用自己重写后的方法完毕之后，还会继续调用父类的onclick方法
+此使用场景  每个按钮有独立的功能，然后又需要做同一件事的时候！
+
+//实际上还是通过super.onClick(v)来调用的
+btn.setOnClickListener(new BtnListener(){
+	@Override
+	public void onClick(View v) {
+		Toast.makeText(MainActivity.this, "hello world!",Toast.LENGTH_SHORT).show();
+		super.onClick(v);
+	}
+});
+
+
+
+
+
+3、实现接口的方式来实现
+
+
+OnClickListener 监听接口
+
+View是所有控件的爸爸
+
+
+在页面上显示提示消息
+
+Toast.makeText(MainActitity.this,"显示的信息",Toast.LENGTH_LOGN);
+
+
+控件的setAlpha()方法可以调整控件的透明度    0-1之间的float数字   0不显示 1完全显示
+v.setAlpha(0.5f);
