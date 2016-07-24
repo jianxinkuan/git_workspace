@@ -1,0 +1,39 @@
+AutoCompleteTextView
+MultiAutoCompleteTextView
+
+AutoCompleteTextView  中文直译  自动补全的文本框
+
+实际的效果是像百度的框子一样，输入几个内容后出现一个下拉列表
+
+
+<AutoCompleteTextView
+	android:id="@+id/acTextView1"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:completionThreshold="2" 输入几个字以后开始匹配
+	android:hint="请输入内容呢"  //效果跟 css的placeholder一样的
+/>
+
+
+package com.jxk.weixin;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+
+public class MainActivity extends Activity {
+
+	private AutoCompleteTextView acTextView;
+	
+	private String[] str=new String[]{"beijing1","bEijing2","beIjing3"};
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		//获取到自动补全文本框控件
+		acTextView=(AutoCompleteTextView) findViewById(R.id.acCompleteTextView);
+		ArrayAdapter<String> content=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, str);
+		acTextView.setAdapter(content);
+	}
+}
