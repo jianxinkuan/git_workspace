@@ -37,3 +37,33 @@ public class MainActivity extends Activity {
 		acTextView.setAdapter(content);
 	}
 }
+
+
+------------------------------------------------------------------
+
+
+MultiAutoCompleteTextView  2016年7月25日20:03:21
+
+带分割符的自动补全
+
+
+<MultiAutoCompleteTextView
+	android:id="@+id/id1"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:completionThreshold="3"
+/>
+
+
+
+初始化控件
+MultiAutoCompleteTextView macTextView=(MultiAutoCompleteTextView)findViewById(R.id.id1);
+//设置内容适配器
+ArrayAdapter arrayAdapter=new ArrayAdapter(this,android.R.layout.simpXXXX_1,new String[]{"1212"});
+macTextView.setAdapter(arrayAdapter);
+//设置分词器
+macTextView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+
+
+
+此控件的效果跟发邮件的时候输入收件人一样，一个个分隔开的，每次都有提醒，而AutoCompleteTextView只有一次提醒
