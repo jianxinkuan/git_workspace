@@ -1,0 +1,29 @@
+﻿toggle button  开关按钮控件的使用
+
+
+<ToggleButton
+	android:id="@+id/toggleButton1"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:textOn="开"
+	android:textOff="关"
+	android:checked="false"
+/>
+
+
+java类里面
+
+ToggleButton toggleButton=(ToggleButton)findViewById(R.id.toggleButton1);
+
+toggleButton.setOnCheckedChangeListener(new OnCheckedChangeListener(){
+
+	@Override
+	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+		imageView.setBackgroundResource(isChecked?R.drawable.open:R.drawable.close);
+	}
+});
+
+
+总结
+
+监听事件是 OnCheckedChangeListener()
