@@ -1,0 +1,31 @@
+﻿2016年7月27日21:25:36  复选框和单选框
+
+
+CheckBox的使用
+
+<CheckBox
+	android:id="@+id/checkBox1"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:text="选项的内容"
+	android:checked="false"  是否默认选中
+/>
+
+
+checkBox=(CheckBox) findViewById(R.id.checkBox1);
+		
+checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+	@Override
+	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+		System.out.println(buttonView.getText().toString());
+	}
+});
+
+
+多选框也是通过添加 OnCheckedChangeListener 来实现监听
+
+跟ToggleButton是一样的
+
+
+-----------------------------------------------------------------------------------
+
