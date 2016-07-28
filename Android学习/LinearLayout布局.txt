@@ -1,0 +1,57 @@
+﻿android 5大布局之线性布局LinearLayout
+
+布局决定内部的空间如何排列
+
+线性布局的特点
+1、它包含的子控件要么是横向排列，要么是纵向排列
+
+
+权重
+android:layout_weight="1"
+layout_height="match_parent"
+当权重和宽度 高度有冲突的时候，会造成布局混乱。所以使用的时候需要注意一下
+
+常用的属性
+
+1、
+
+<LinearLayout
+	android:id="@+id/varlian"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+
+	#orientation属性有两个值  vertical(垂直)和horizontal(水平排列)  
+	android:orientation="vertical" horizontal
+
+	#gravity属性  重力  此属性决定了子元素的排列位置
+	android:gravity="center_horizontal" 水平居中  center left right bottom等等
+>
+
+	<Button
+		android:layout_gravity="left|top"  控件自己控制位置  
+	
+	/>
+
+</LinearLayout>
+
+注意
+
+android:gravity=""  布局用
+android:layout_gravity="" 控件自己用
+
+布局之间是可以相互套用来使用的
+
+总结：
+
+布局
+orientation="" vertical horizontal 决定子元素垂直还是水平排放
+gravity=""  center right left top buttom等 子元素的排列位置  多个用|连接  top|left 左上角
+
+
+子类控件
+
+android:layout_gravity="left  right 等"
+android:weight="1" 权重 (该属性需要好好意会！)
+
+
+
