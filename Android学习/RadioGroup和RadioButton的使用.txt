@@ -1,0 +1,46 @@
+﻿单选框组件
+
+<RadioGroup
+	android:id="@+id/radioGroup1"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:orientataion="horizontal">
+
+	<RadioButton
+		android:id="@+id/radio_btn_boy"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="男"
+	/>
+	
+	<RadioButton
+		android:id="@+id/radio_btn_girl"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="女"
+	/>
+
+</RadioGroup>
+
+注意  一组RadioButton应该被 一个 RadioGroup包裹起来   表示这些RadioButton是一组
+
+
+
+
+java类里面
+
+
+
+RadioGroup radioGroup=findViewById(R.id.radioGroup1);
+
+radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListner(){
+
+	//参数是radiogroup和被选中的那个radiobutton
+	public void onCheckedChanged(RadioGroup radioGroup,int radioButton_id){
+		
+		//判断这个ID到底是哪个
+		if(radioButton_id=R.id.radio_btn_girl){
+		
+		}
+	}
+});
